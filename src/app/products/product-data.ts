@@ -1,8 +1,8 @@
-import { Product } from './product';
+import { IProduct } from './product';
 
 export class ProductData {
 
-  static products: Product[] = [
+  static products: IProduct[] = [
     {
       'id': 1,
       'productName': 'Leaf Rake',

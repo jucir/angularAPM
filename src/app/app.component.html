@@ -1,10 +1,10 @@
-<nav class="navbar navbar-expand navbar-light bg-light">
-  <ul class="navbar-nav">
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+  <ul class="navbar-nav ms-4 me-4">
     <li class="nav-item">
       <a class="nav-link" [routerLink]="['/welcome']" routerLinkActive="active">Home</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" [routerLink]="['/products']" routerLinkActive="active"
+      <a class="nav-link" [routerLink]="['/products', 0]" routerLinkActive="active"
         [routerLinkActiveOptions]="{ exact : true}">Product List</a>
     </li>
   </ul>

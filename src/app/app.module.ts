@@ -8,6 +8,8 @@ import { AppData } from './app-data';
 
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { ProductsComponent } from './products/products.component';
+import { ProductListComponent } from './products/product-list/product-list.component';
+import { ProductDetailComponent } from './products/product-detail/product-detail.component';
 
 @NgModule({
   imports: [
@@ -15,10 +17,13 @@ import { ProductsComponent } from './products/products.component';
     AppRoutingModule,
     HttpClientModule,
     InMemoryWebApiModule.forRoot(AppData, { delay: 1000 }),
+    
   ],
   declarations: [
     AppComponent,
-    ProductsComponent
+    ProductsComponent,
+    ProductListComponent,
+    ProductDetailComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

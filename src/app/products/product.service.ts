@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { combineLatest, throwError, of, BehaviorSubject } from 'rxjs';
 import { catchError, map, shareReplay, tap } from 'rxjs/operators';
-import { Product } from './product';
+import { IProduct } from './product';
 
 @Injectable({
   providedIn: 'root'
@@ -15,14 +15,34 @@ export class ProductService {
 
   private productsUrl = 'api/products';
 
+  private productSelectedAction = new BehaviorSubject<number>(0);
+
   // All products
   // Instead of defining the http.get in a method in the service,
   // set the observable directly
-  products$ = this.httpClient.get<Product[]>(this.productsUrl)
+  products$ = this.httpClient.get<IProduct[]>(this.productsUrl)
     .pipe(
       tap(console.table),
       catchError(this.handleError)
     );
+    
+
+  selectedProduct$ = combineLatest([this.productSelectedAction, this.products$]).pipe(
+    map(([selectedProductId, products]: [number, IProduct[]]) => {
+      const a = products.find(product => product.id === selectedProductId);
+      return a;
+    }
+      
+    ),
+    tap(product => console.log('selectedProduct', product)),
+    shareReplay(1),
+    catchError(this.handleError)
+  );
+
+  // Change the selected product
+  changeSelectedProduct(selectedProductId: number): void {
+    this.productSelectedAction.next(selectedProductId);
+  }
 
   private handleError(err: any) {
     // in a real world app, we may send the server to some remote logging infrastructure
