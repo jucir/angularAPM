@@ -10,6 +10,7 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { ProductsComponent } from './products/products.component';
 import { ProductListComponent } from './products/product-list/product-list.component';
 import { ProductDetailComponent } from './products/product-detail/product-detail.component';
+import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import { ProductDetailComponent } from './products/product-detail/product-detail
     AppComponent,
     ProductsComponent,
     ProductListComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    WelcomePageComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
