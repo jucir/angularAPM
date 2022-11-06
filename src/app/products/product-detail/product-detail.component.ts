@@ -7,7 +7,7 @@ import { map, filter } from 'rxjs/operators';
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',
-  styleUrls: ['./product-detail.component.scss']
+  styleUrls: ['./product-detail.component.scss'],
 })
 export class ProductDetailComponent implements OnInit {
 
@@ -29,6 +29,7 @@ export class ProductDetailComponent implements OnInit {
   );
 
   ngOnInit(): void {
+    
   }
 
 }
